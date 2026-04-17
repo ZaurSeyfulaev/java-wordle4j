@@ -32,6 +32,7 @@ public class Wordle {
         System.out.println("- : буквы нет");
         System.out.println("Enter - подсказка,  тратит попытку)\n");
         logger.printLog("Игра началась");
+
         try (Scanner scanner = new Scanner(System.in)) {
             while (wordleGame.getSteps() < 6) {
                 System.out.println("Осталось в запасе попыток " + (6 - wordleGame.getSteps()));

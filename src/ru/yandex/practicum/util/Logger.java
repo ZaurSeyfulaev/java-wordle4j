@@ -27,6 +27,7 @@ public class Logger {
         out.println(logTime + log);
         out.flush();
     }
+
     public void close() {
         out.close();
     }
