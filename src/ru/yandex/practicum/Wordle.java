@@ -18,6 +18,7 @@ import java.util.Scanner;
  */
 public class Wordle {
     private static final int MAX_STEPS = 6;
+
     public static void main(String[] args) throws IOException, TechnicalException {
 
         Logger logger = new Logger("log.txt");
