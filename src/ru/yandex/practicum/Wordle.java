@@ -17,7 +17,7 @@ import java.util.Scanner;
     вывести состояние игры и конечный результат
  */
 public class Wordle {
-
+    private static final int MAX_STEPS = 6;
     public static void main(String[] args) throws IOException, TechnicalException {
 
         Logger logger = new Logger("log.txt");
@@ -34,8 +34,8 @@ public class Wordle {
         logger.printLog("Игра началась");
 
         try (Scanner scanner = new Scanner(System.in)) {
-            while (wordleGame.getSteps() < 6) {
-                System.out.println("Осталось в запасе попыток " + (6 - wordleGame.getSteps()));
+            while (wordleGame.getSteps() < MAX_STEPS) {
+                System.out.println("Осталось в запасе попыток " + (MAX_STEPS - wordleGame.getSteps()));
                 System.out.println("Введите слово:");
                 userWord = scanner.nextLine();
                 logger.printLog("Пользователь ввел слово ==> " + userWord);
@@ -52,7 +52,7 @@ public class Wordle {
                     System.out.println("Поздравляю! Слово угадано!");
                     logger.close();
                     break;
-                } else if (wordleGame.getSteps() == 6) {
+                } else if (wordleGame.getSteps() == MAX_STEPS) {
                     System.out.println("Вы проиграли");
 
                 }

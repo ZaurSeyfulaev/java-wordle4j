@@ -13,6 +13,7 @@ import java.util.*;
     также этот класс может содержать рутинные функции по сравнению слов, букв и т.д.
  */
 public class WordleDictionary {
+    private static final int MAX_WORD_LENGTH = 5;
     private final List<String> words; // Список всех слов
     private final Set<String> wordSet; // Для быстрого поиска
     Logger logger;
@@ -26,11 +27,11 @@ public class WordleDictionary {
 
     public boolean isTrueWord(String word) throws IOException {
         try {
-            if (word.length() > 5) {
+            if (word.length() > MAX_WORD_LENGTH) {
                 throw new InputException("Слово слишком длинное");
             }
             String normalizedWord = WordleDictionaryLoader.normalizeWord(word);
-            return wordSet.contains(normalizedWord) && word.length() == 5;
+            return wordSet.contains(normalizedWord) && word.length() == MAX_WORD_LENGTH;
         } catch (InputException e) {
             logger.printLog(e.getMessage());
         }

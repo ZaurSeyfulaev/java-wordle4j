@@ -18,7 +18,7 @@ import java.util.List;
     на выходе должен быть класс WordleDictionary
  */
 public class WordleDictionaryLoader {
-
+    private static final int MAX_WORD_LENGTH = 5;
     private static final String wordsDictionary = "words_ru.txt";
     Logger logger;
 
@@ -38,7 +38,7 @@ public class WordleDictionaryLoader {
         try (BufferedReader br = new BufferedReader(new FileReader(wordsDictionary, StandardCharsets.UTF_8))) {
             while (br.ready()) {
                 String line = normalizeWord(br.readLine());
-                if (line.length() == 5) {
+                if (line.length() == MAX_WORD_LENGTH) {
                     words.add(line);
                 }
             }

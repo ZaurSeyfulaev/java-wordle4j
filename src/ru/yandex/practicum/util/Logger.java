@@ -7,12 +7,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 public class Logger {
-    private final
-    PrintWriter out;
-    private String filePath;
+    private final PrintWriter out;
 
     public Logger(String filePath) throws IOException {
-        this.filePath = filePath;
         out = new PrintWriter(new FileWriter(filePath, StandardCharsets.UTF_8, true));
     }
 
